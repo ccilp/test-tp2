@@ -18,8 +18,12 @@ app
          * Implémenter ce controlleur afin qu'il rechereche en base de donnée l'utilisateur par son ID et le retourne
          * sous format json au client.(voir le controlleur .post)
          */
+         var repository = new UserRepository(db);
+         var user = repository.findOneById(id);
 
-        res.send('Not implemented');
+         res.header("Access-Control-Allow-Origin", "*");
+         res.send(user);
+         res.send('Not implemented');
     })
 
     // Creation d'un utilisateur
